@@ -14,11 +14,26 @@
  *  limitations under the License.
  */
 
-exports.name = 'ibot_pong'
+var config = undefined
+
+exports.name = 'ibot_autojoin'
+exports.config$load = function(cfg)
+{
+    config = cfg
+}
+
 exports.ibot$recv = function(server, message)
 {
-    if(message.opcode === 'PING')
+    switch(message.opcode)
     {
-        server.send('PONG :' + message.params[0])
+        case '001':
+            if(config !== undefined && Array.isArray(config.channels))
+            {
+                for(var i=0; i<config.channels.length; ++i)
+                {
+                    server.send('JOIN ' + config.channels[i])
+                }
+            }
+            break
     }
 }
