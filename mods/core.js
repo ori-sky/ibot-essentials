@@ -6,6 +6,7 @@ exports.Privmsg = function(message)
     this.prefix = message.prefix
     this.target = message.params[0]
     this.message = message.params[1]
+    this.words = this.message.split(' ')
 }
 
 exports.ibot$recv = function(server, message)
