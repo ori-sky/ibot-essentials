@@ -23,6 +23,12 @@ exports.Privmsg = function(message)
     this.target = message.params[0]
     this.message = message.params[1]
     this.words = this.message.split(' ')
+
+    this.reply = function(server, message)
+    {
+        // TODO: make this detect non-channel targets or something
+        exports.privmsg(server, this.target, message)
+    }
 }
 
 exports.ibot$recv = function(server, message)
