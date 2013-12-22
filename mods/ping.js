@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-exports.name = 'ibot_pong'
+exports.name = 'ibot_ping'
 exports.ibot_core$ping = function(server, message)
 {
     server.send('PONG :' + message.params[0])
