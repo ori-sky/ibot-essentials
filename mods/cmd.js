@@ -20,6 +20,7 @@ exports.Command = function(cmd, params)
 {
     this.cmd = cmd
     this.params = params
+    this.paramstring = this.params.join(' ')
 }
 
 exports.ibot_core$privmsg = function(server, privmsg)
