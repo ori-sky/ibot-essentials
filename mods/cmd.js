@@ -18,6 +18,8 @@ exports.ibot_core$privmsg = function(server, privmsg)
 
     if(cmd !== undefined)
     {
-        exports.__mods.fire('cmd', server, privmsg, new exports.Command(cmd, privmsg.words.slice(index)))
+        var command = new exports.Command(cmd, privmsg.words.slice(index))
+        exports.__mods.fire('cmd', server, privmsg, command)
+        exports.__mods.fire('cmd__' + command.cmd, server, privmsg, command)
     }
 }
