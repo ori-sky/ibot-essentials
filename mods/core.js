@@ -40,6 +40,9 @@ exports.ibot$recv = function(server, message)
         case '396': // RPL_HOSTHIDDEN
             exports.__mods.fire(message.opcode, server, message)
             break
+        case 'PING':
+            exports.__mods.fire('ping', server, message)
+            break
         case 'PRIVMSG':
             exports.__mods.fire('privmsg', server, new exports.Privmsg(message))
             break
