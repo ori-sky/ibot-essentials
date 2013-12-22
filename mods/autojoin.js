@@ -22,18 +22,13 @@ exports.config$load = function(cfg)
     config = cfg
 }
 
-exports.ibot$recv = function(server, message)
+exports.ibot_core$001 = function(server, message)
 {
-    switch(message.opcode)
+    if(config !== undefined && Array.isArray(config.channels))
     {
-        case '001':
-            if(config !== undefined && Array.isArray(config.channels))
-            {
-                for(var i=0; i<config.channels.length; ++i)
-                {
-                    server.send('JOIN ' + config.channels[i])
-                }
-            }
-            break
+        for(var i=0; i<config.channels.length; ++i)
+        {
+            server.send('JOIN ' + config.channels[i])
+        }
     }
 }
