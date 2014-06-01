@@ -29,7 +29,7 @@ exports.ibot_cmd$cmd_loadmod = function(server, privmsg, command)
         catch(e)
         {
             privmsg.reply(server, 'Failed to load module `' + command.params[0] + '` (' + e.type + ')')
-            console.log(e)
+            console.log(e.stack)
         }
     }
 }

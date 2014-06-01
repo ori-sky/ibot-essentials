@@ -44,7 +44,7 @@ exports.ibot_core$privmsg = function(server, privmsg)
 		catch(e)
 		{
 			privmsg.reply(server, 'Failed to execute command `' + cmd + '` (' + e.type + ')')
-			console.log(e)
+			console.log(e.stack)
 		}
 	}
 }
