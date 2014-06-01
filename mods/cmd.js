@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,25 +18,33 @@ exports.name = 'ibot_cmd'
 
 exports.Command = function(cmd, params)
 {
-    this.cmd = cmd
-    this.params = params
-    this.paramstring = this.params.join(' ')
+	this.cmd = cmd
+	this.params = params
+	this.paramstring = this.params.join(' ')
 }
 
 exports.ibot_core$privmsg = function(server, privmsg)
 {
-    var cmd = undefined
-    var index = undefined
-    if(privmsg.words[0][0] === '!')
-    {
-        cmd = privmsg.words[0].substr(1)
-        index = 1
-    }
+	var cmd = undefined
+	var index = undefined
+	if(privmsg.words[0][0] === '!')
+	{
+		cmd = privmsg.words[0].substr(1)
+		index = 1
+	}
 
-    if(cmd !== undefined)
-    {
-        var command = new exports.Command(cmd, privmsg.words.slice(index))
-        exports.__mods.fire('cmd', server, privmsg, command)
-        exports.__mods.fire('cmd_' + command.cmd, server, privmsg, command)
-    }
+	if(cmd !== undefined)
+	{
+		var command = new exports.Command(cmd, privmsg.words.slice(index))
+		try
+		{
+			exports.__mods.fire('cmd', server, privmsg, command)
+			exports.__mods.fire('cmd_' + command.cmd, server, privmsg, command)
+		}
+		catch(e)
+		{
+			privmsg.reply(server, 'Failed to execute command `' + cmd + '` (' + e.type + ')')
+			console.log(e)
+		}
+	}
 }
