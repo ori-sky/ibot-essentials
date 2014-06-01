@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -24,4 +24,9 @@ exports.ibot_cmd$cmd_listmods = function(server, privmsg, command)
         var module_names = Object.keys(exports.__mods.modules)
         privmsg.reply(server, 'Modules (' + module_names.length + '): ' + module_names.join(', '))
     }
+}
+
+exports.ibot_help$help_listmods = function()
+{
+	return 'listmods: Lists all loaded mods.'
 }

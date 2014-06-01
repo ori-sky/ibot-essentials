@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -23,4 +23,9 @@ exports.ibot_cmd$cmd_raw = function(server, privmsg, command)
     {
         server.send(command.paramstring)
     }
+}
+
+exports.ibot_help$help_raw = function()
+{
+	return 'raw <data>: Sends raw data to the server.'
 }

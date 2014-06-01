@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -31,4 +31,9 @@ exports.ibot_cmd$cmd_unloadmod = function(server, privmsg, command)
             privmsg.reply(server, 'Failed to unload module `' + command.params[0] + '` (' + e.type + ')')
         }
     }
+}
+
+exports.ibot_help$help_unloadmod = function()
+{
+	return 'unloadmod <name>: Unloads a mod.'
 }

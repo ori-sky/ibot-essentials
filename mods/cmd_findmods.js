@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -30,4 +30,9 @@ exports.ibot_cmd$cmd_findmods = function(server, privmsg, command)
 
         privmsg.reply(server, 'Modules (' + module_names.length + '): ' + module_names.join(', '))
     }
+}
+
+exports.ibot_help$help_findmods = function()
+{
+	return 'findmods <string>: Finds loaded mods with names containing the specified string.'
 }

@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -19,4 +19,9 @@ exports.name = 'ibot_cmd_ping'
 exports.ibot_cmd$cmd_ping = function(server, privmsg, command)
 {
     privmsg.reply(server, 'pong')
+}
+
+exports.ibot_help$help_ping = function()
+{
+	return 'ping: Ping Pong'
 }

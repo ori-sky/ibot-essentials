@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -32,4 +32,9 @@ exports.ibot_cmd$cmd_loadmod = function(server, privmsg, command)
             console.log(e.stack)
         }
     }
+}
+
+exports.ibot_help$help_loadmod = function()
+{
+	return 'loadmod <path> [name]: Loads a mod, optionally with the specified name.'
 }
