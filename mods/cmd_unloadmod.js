@@ -16,7 +16,7 @@
 
 exports.name = 'ibot_cmd_unloadmod'
 
-exports.ibot_cmd$cmd__unloadmod = function(server, privmsg, command)
+exports.ibot_cmd$cmd_unloadmod = function(server, privmsg, command)
 {
     // TODO: fire a generic authentication event and check return values
     if(exports.__.ibot_master.test(privmsg.prefix.mask))

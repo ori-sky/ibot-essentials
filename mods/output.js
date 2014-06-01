@@ -14,12 +14,14 @@
  *  limitations under the License.
  */
 
+var util = require('util')
+
 exports.name = 'ibot_output'
 exports.ibot$recv = function(server, message)
 {
-    console.log('<- ' + message)
+    console.log('<- ' + util.inspect(message.toString()))
 }
 exports.ibot$send = function(server, data)
 {
-    console.log('-> ' + data)
+    console.log('-> ' + util.inspect(data))
 }
