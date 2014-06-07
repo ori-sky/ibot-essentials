@@ -22,8 +22,8 @@ exports.ibot_cmd$cmd_help = function(server, privmsg, command)
 	var obj = exports.__.ibot_help.help(topic)
 	var keys = Object.keys(obj)
 
-	if(keys.length > 0) privmsg.reply(server, obj[keys[0]])
-	else privmsg.reply(server, 'No help available for `' + topic + '`.')
+	if(keys.length > 0) privmsg.reply(obj[keys[0]])
+	else privmsg.reply('No help available for `' + topic + '`.')
 }
 
 exports.ibot_help$help_help = function()

@@ -24,11 +24,11 @@ exports.ibot_cmd$cmd_unloadmod = function(server, privmsg, command)
         try
         {
             exports.__mods.unload(command.params[0])
-            privmsg.reply(server, 'Unloaded module `' + command.params[0] + '`')
+            privmsg.reply('Unloaded module `' + command.params[0] + '`')
         }
         catch(e)
         {
-            privmsg.reply(server, 'Failed to unload module `' + command.params[0] + '` (' + e.type + ')')
+            privmsg.reply('Failed to unload module `' + command.params[0] + '` (' + e.type + ')')
         }
     }
 }

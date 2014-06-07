@@ -24,11 +24,11 @@ exports.ibot_cmd$cmd_loadmod = function(server, privmsg, command)
         try
         {
             exports.__mods.load(command.params[0], command.params[1], true)
-            privmsg.reply(server, 'Loaded module `' + command.params[0] + '`')
+            privmsg.reply('Loaded module `' + command.params[0] + '`')
         }
         catch(e)
         {
-            privmsg.reply(server, 'Failed to load module `' + command.params[0] + '` (' + e.type + ')')
+            privmsg.reply('Failed to load module `' + command.params[0] + '` (' + e.type + ')')
             console.log(e.stack)
         }
     }

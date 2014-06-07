@@ -16,7 +16,7 @@
 
 exports.name = 'ibot_core'
 
-exports.Privmsg = function(message)
+exports.Privmsg = function(message, server)
 {
     this.tags = message.tags
     this.prefix = message.prefix
@@ -24,10 +24,11 @@ exports.Privmsg = function(message)
     this.message = message.params[1]
     this.words = this.message.split(' ')
 
-    this.reply = function(server, message)
+    this.server = server
+    this.reply = function(message)
     {
         // TODO: make this detect non-channel targets or something
-        exports.privmsg(server, this.target, message)
+        exports.privmsg(this.server, this.target, message)
     }
 }
 
@@ -50,7 +51,7 @@ exports.ibot$recv = function(server, message)
             exports.__mods.fire('ping', server, message)
             break
         case 'PRIVMSG':
-            exports.__mods.fire('privmsg', server, new exports.Privmsg(message))
+            exports.__mods.fire('privmsg', server, new exports.Privmsg(message, server))
             break
     }
 }

@@ -22,7 +22,7 @@ exports.ibot_cmd$cmd_listmods = function(server, privmsg, command)
     if(exports.__.ibot_master.test(privmsg.prefix.mask))
     {
         var module_names = Object.keys(exports.__mods.modules)
-        privmsg.reply(server, 'Modules (' + module_names.length + '): ' + module_names.join(', '))
+        privmsg.reply('Modules (' + module_names.length + '): ' + module_names.join(', '))
     }
 }
 

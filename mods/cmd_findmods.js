@@ -28,7 +28,7 @@ exports.ibot_cmd$cmd_findmods = function(server, privmsg, command)
             return regexp.test(v)
         })
 
-        privmsg.reply(server, 'Modules (' + module_names.length + '): ' + module_names.join(', '))
+        privmsg.reply('Modules (' + module_names.length + '): ' + module_names.join(', '))
     }
 }
 
