@@ -18,7 +18,7 @@ exports.name = 'ibot_help'
 
 exports.help = function(topic)
 {
-	var obj = exports.__mods.fire(exports.name + '$help_' + topic)
+	var obj = exports.__mods.fire('help_' + topic)
 	var keys = Object.keys(obj)
 
 	for(var i=0; i<keys.length; ++i)
