@@ -17,10 +17,13 @@
 var util = require('util')
 
 exports.name = 'ibot_output'
+exports.priority = -10
+
 exports.ibot$recv = function(server, message)
 {
     console.log('<- ' + util.inspect(message.toString()))
 }
+
 exports.ibot$send = function(server, data)
 {
     console.log('-> ' + util.inspect(data))
