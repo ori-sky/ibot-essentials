@@ -20,7 +20,9 @@ exports.Command = function(cmd, params)
 {
 	this.rawcmd = cmd
 	this.cmd = cmd.toLowerCase()
-	this.params = params
+	this.rawparams = params
+	this.rawparamstring = this.rawparams.join(' ')
+	this.params = params.filter(function(v) { return v !== '' })
 	this.paramstring = this.params.join(' ')
 }
 
