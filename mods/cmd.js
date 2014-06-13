@@ -38,8 +38,8 @@ exports.ibot_core$privmsg = function(server, privmsg)
 		var command = new exports.Command(cmd, privmsg.words.slice(index))
 		try
 		{
-			exports.__mods.fire('cmd', server, privmsg, command)
-			exports.__mods.fire('cmd_' + command.cmd, server, privmsg, command)
+			exports.mods.fire('cmd', server, privmsg, command)
+			exports.mods.fire('cmd_' + command.cmd, server, privmsg, command)
 		}
 		catch(e)
 		{

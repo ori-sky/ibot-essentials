@@ -19,7 +19,7 @@ exports.name = 'ibot_cmd_help'
 exports.ibot_cmd$cmd_help = function(server, privmsg, command)
 {
 	var topic = command.params.join('_') || 'help'
-	var obj = exports.__mods.call('ibot_help', 'help', topic)
+	var obj = exports.mods.call('ibot_help', 'help', topic)
 	var keys = Object.keys(obj)
 
 	if(keys.length > 0) privmsg.reply(obj[keys[0]])

@@ -45,13 +45,13 @@ exports.ibot$recv = function(server, message)
         case '375': // RPL_MOTDSTART
         case '376': // RPL_ENDOFMOTD
         case '396': // RPL_HOSTHIDDEN
-            exports.__mods.fire(message.opcode, server, message)
+            exports.mods.fire(message.opcode, server, message)
             break
         case 'PING':
-            exports.__mods.fire('ping', server, message)
+            exports.mods.fire('ping', server, message)
             break
         case 'PRIVMSG':
-            exports.__mods.fire('privmsg', server, new exports.Privmsg(message, server))
+            exports.mods.fire('privmsg', server, new exports.Privmsg(message, server))
             break
     }
 }

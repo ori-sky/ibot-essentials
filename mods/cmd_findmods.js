@@ -19,11 +19,11 @@ exports.name = 'ibot_cmd_findmods'
 exports.ibot_cmd$cmd_findmods = function(server, privmsg, command)
 {
     // TODO: fire a generic authentication event and check return values
-    if(exports.__.ibot_master.test(privmsg.prefix.mask))
+	if(exports.mods.call('ibot_master', 'test', privmsg.prefix.mask))
     {
         var regexp = new RegExp(command.params[0])
 
-        var module_names = Object.keys(exports.__mods.modules).filter(function(v)
+        var module_names = Object.keys(exports.mods.modules).filter(function(v)
         {
             return regexp.test(v)
         })

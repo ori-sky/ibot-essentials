@@ -18,12 +18,12 @@ exports.name = 'ibot_cmd_reloadmods'
 
 exports.ibot_cmd$cmd_reloadmods = function(server, privmsg, command)
 {
-    if(exports.__.ibot_master.test(privmsg.prefix.mask))
+	if(exports.mods.call('ibot_master', 'test', privmsg.prefix.mask))
 	{
 		try
 		{
 			privmsg.reply('Reloading mods subsystem.')
-			exports.__mods.reloadSelf()
+			exports.mods.reloadSelf()
 		}
 		catch(e)
 		{
