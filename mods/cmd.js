@@ -18,7 +18,8 @@ exports.name = 'ibot_cmd'
 
 exports.Command = function(cmd, params)
 {
-	this.cmd = cmd
+	this.rawcmd = cmd
+	this.cmd = cmd.toLowerCase()
 	this.params = params
 	this.paramstring = this.params.join(' ')
 }
