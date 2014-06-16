@@ -16,21 +16,21 @@
 
 exports.name = 'ibot_cmd_unloadmod'
 
-exports.ibot_cmd$cmd_unloadmod = function(server, privmsg, command)
+exports.ibot_cmd$cmd_unloadmod = function(privmsg, command)
 {
-    // TODO: fire a generic authentication event and check return values
+	// TODO: fire a generic authentication event and check return values
 	if(exports.mods.call('ibot_master', 'test', privmsg.prefix.mask))
-    {
-        try
-        {
-            exports.mods.unload(command.params[0])
-            privmsg.reply('Unloaded module `' + command.params[0] + '`')
-        }
-        catch(e)
-        {
-            privmsg.reply('Failed to unload module `' + command.params[0] + '` (' + e.type + ')')
-        }
-    }
+	{
+		try
+		{
+			exports.mods.unload(command.params[0])
+			privmsg.reply('Unloaded module `' + command.params[0] + '`')
+		}
+		catch(e)
+		{
+			privmsg.reply('Failed to unload module `' + command.params[0] + '` (' + e.type + ')')
+		}
+	}
 }
 
 exports.ibot_help$help_unloadmod = function()

@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 
 exports.name = 'ibot_ping'
-exports.ibot_core$ping = function(server, message)
+exports.ibot_core$ping = function(message)
 {
-    server.send('PONG :' + message.params[0])
+	exports.instance.server.send('PONG :' + message.params[0])
 }

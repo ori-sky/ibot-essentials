@@ -26,7 +26,7 @@ exports.Command = function(cmd, params)
 	this.paramstring = this.params.join(' ')
 }
 
-exports.ibot_core$privmsg = function(server, privmsg)
+exports.ibot_core$privmsg = function(privmsg)
 {
 	var cmd = undefined
 	var index = undefined
@@ -41,8 +41,8 @@ exports.ibot_core$privmsg = function(server, privmsg)
 		var command = new exports.Command(cmd, privmsg.words.slice(index))
 		try
 		{
-			exports.mods.fire('cmd', server, privmsg, command)
-			exports.mods.fire('cmd_' + command.cmd, server, privmsg, command)
+			exports.mods.fire('cmd', privmsg, command)
+			exports.mods.fire('cmd_' + command.cmd, privmsg, command)
 		}
 		catch(e)
 		{

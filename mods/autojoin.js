@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -19,16 +19,16 @@ var config = undefined
 exports.name = 'ibot_autojoin'
 exports.config$load = function(cfg)
 {
-    config = cfg
+	config = cfg
 }
 
-exports.ibot_core$001 = function(server, message)
+exports.ibot_core$001 = function(message)
 {
-    if(config !== undefined && Array.isArray(config.channels))
-    {
-        for(var i=0; i<config.channels.length; ++i)
-        {
-            server.send('JOIN ' + config.channels[i])
-        }
-    }
+	if(config !== undefined && Array.isArray(config.channels))
+	{
+		for(var i=0; i<config.channels.length; ++i)
+		{
+			exports.instance.server.send('JOIN ' + config.channels[i])
+		}
+	}
 }

@@ -16,7 +16,7 @@
 
 exports.name = 'ibot_cmd_help'
 
-exports.ibot_cmd$cmd_help = function(server, privmsg, command)
+exports.ibot_cmd$cmd_help = function(privmsg, command)
 {
 	var topic = command.params.join('_') || 'help'
 	var obj = exports.mods.call('ibot_help', 'help', topic)

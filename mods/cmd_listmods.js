@@ -16,14 +16,14 @@
 
 exports.name = 'ibot_cmd_listmods'
 
-exports.ibot_cmd$cmd_listmods = function(server, privmsg, command)
+exports.ibot_cmd$cmd_listmods = function(privmsg, command)
 {
-    // TODO: fire a generic authentication event and check return values
+	// TODO: fire a generic authentication event and check return values
 	if(exports.mods.call('ibot_master', 'test', privmsg.prefix.mask))
-    {
-        var module_names = Object.keys(exports.mods.modules)
-        privmsg.reply('Modules (' + module_names.length + '): ' + module_names.join(', '))
-    }
+	{
+		var module_names = Object.keys(exports.mods.modules)
+		privmsg.reply('Modules (' + module_names.length + '): ' + module_names.join(', '))
+	}
 }
 
 exports.ibot_help$help_listmods = function()

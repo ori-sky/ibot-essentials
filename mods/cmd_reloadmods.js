@@ -16,7 +16,7 @@
 
 exports.name = 'ibot_cmd_reloadmods'
 
-exports.ibot_cmd$cmd_reloadmods = function(server, privmsg, command)
+exports.ibot_cmd$cmd_reloadmods = function(privmsg, command)
 {
 	if(exports.mods.call('ibot_master', 'test', privmsg.prefix.mask))
 	{
@@ -28,7 +28,7 @@ exports.ibot_cmd$cmd_reloadmods = function(server, privmsg, command)
 		catch(e)
 		{
 			privmsg.reply('Failed to reload mods subsystem (' + e.type + ')')
-            console.log(e.stack)
+			console.log(e.stack)
 		}
 	}
 }

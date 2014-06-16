@@ -16,13 +16,13 @@
 
 exports.name = 'ibot_cmd_raw'
 
-exports.ibot_cmd$cmd_raw = function(server, privmsg, command)
+exports.ibot_cmd$cmd_raw = function(privmsg, command)
 {
-    // TODO: fire a generic authentication event and check return values
+	// TODO: fire a generic authentication event and check return values
 	if(exports.mods.call('ibot_master', 'test', privmsg.prefix.mask))
-    {
-        server.send(command.rawparamstring)
-    }
+	{
+		exports.instance.server.send(command.rawparamstring)
+	}
 }
 
 exports.ibot_help$help_raw = function()

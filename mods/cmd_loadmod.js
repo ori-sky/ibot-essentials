@@ -16,22 +16,22 @@
 
 exports.name = 'ibot_cmd_loadmod'
 
-exports.ibot_cmd$cmd_loadmod = function(server, privmsg, command)
+exports.ibot_cmd$cmd_loadmod = function(privmsg, command)
 {
-    // TODO: fire a generic authentication event and check return values
+	// TODO: fire a generic authentication event and check return values
 	if(exports.mods.call('ibot_master', 'test', privmsg.prefix.mask))
-    {
-        try
-        {
-            exports.mods.load(command.params[0], command.params[1], true)
-            privmsg.reply('Loaded module `' + command.params[0] + '`')
-        }
-        catch(e)
-        {
-            privmsg.reply('Failed to load module `' + command.params[0] + '` (' + e.type + ')')
-            console.log(e.stack)
-        }
-    }
+	{
+		try
+		{
+			exports.mods.load(command.params[0], command.params[1], true)
+			privmsg.reply('Loaded module `' + command.params[0] + '`')
+		}
+		catch(e)
+		{
+			privmsg.reply('Failed to load module `' + command.params[0] + '` (' + e.type + ')')
+			console.log(e.stack)
+		}
+	}
 }
 
 exports.ibot_help$help_loadmod = function()

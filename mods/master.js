@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 David Farrell
+ *  Copyright 2013-2014 David Farrell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,10 +18,10 @@ exports.name = 'ibot_master'
 
 exports.config$load = function(cfg)
 {
-    exports.master = new RegExp(cfg)
+	exports.master = new RegExp(cfg)
 }
 
 exports.test = function(test)
 {
-    return exports.master !== undefined ? exports.master.test(test) : undefined
+	return exports.master !== undefined ? exports.master.test(test) : undefined
 }

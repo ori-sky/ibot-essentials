@@ -16,9 +16,9 @@
 
 exports.name = 'ibot_cmd_ping'
 
-exports.ibot_cmd$cmd_ping = function(server, privmsg, command)
+exports.ibot_cmd$cmd_ping = function(privmsg, command)
 {
-    privmsg.reply('pong')
+	privmsg.reply('pong')
 }
 
 exports.ibot_help$help_ping = function()
