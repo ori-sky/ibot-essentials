@@ -26,11 +26,18 @@ exports.Command = function(cmd, params)
 	this.paramstring = this.params.join(' ')
 }
 
+exports.prefix = '!'
+
+exports.config$load = function(cfg)
+{
+	if(cfg.prefix !== undefined) { exports.prefix = cfg.prefix }
+}
+
 exports.ibot_core$privmsg = function(privmsg)
 {
 	var cmd = undefined
 	var index = undefined
-	if(privmsg.words[0][0] === '!')
+	if(privmsg.words[0][0] === exports.prefix)
 	{
 		cmd = privmsg.words[0].substr(1)
 		index = 1
