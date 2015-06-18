@@ -20,10 +20,9 @@ exports.ibot_cmd$cmd_help = function(privmsg, command)
 {
 	var topic = command.params.join('_') || 'help'
 	var obj = exports.mods.call('ibot_help', 'help', topic)
-	var keys = Object.keys(obj)
 
-	if(keys.length > 0) privmsg.reply(obj[keys[0]])
-	else privmsg.reply('No help available for `' + topic + '`.')
+	if(obj._a.length > 0) { privmsg.reply(obj._a[0]) }
+	else { privmsg.reply('No help available for `' + topic + '`.') }
 }
 
 exports.ibot_help$help_help = function()
