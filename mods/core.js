@@ -53,6 +53,15 @@ exports.ibot$recv = function(message)
 		case 'PRIVMSG':
 			exports.mods.fire('privmsg', new exports.Privmsg(message, exports.instance.server))
 			break
+		case 'JOIN':
+			exports.mods.fire('join', message)
+			break
+		case 'PART':
+			exports.mods.fire('part', message)
+			break
+		case 'QUIT':
+			exports.mods.fire('quit', message)
+			break
 	}
 }
 
