@@ -32,7 +32,6 @@ exports.Channel = function(name) {
 
 exports.ibot_core$join = function(msg) {
 	if(exports.my.users === undefined) { exports.my.users = {} }
-	if(exports.my.channels === undefined) { exports.my.channels = {} }
 
 	var lowerNick = msg.prefix.nick.toLowerCase()
 	var lowerChannel = msg.params[0].toLowerCase()
@@ -44,7 +43,6 @@ exports.ibot_core$join = function(msg) {
 
 exports.ibot_core$part = function(msg) {
 	if(exports.my.users === undefined) { exports.my.users = {} }
-	if(exports.my.channels === undefined) { exports.my.channels = {} }
 
 	var lowerNick = msg.prefix.nick.toLowerCase()
 	if(exports.my.users[lowerNick] !== undefined) {
@@ -58,7 +56,6 @@ exports.ibot_core$part = function(msg) {
 
 exports.ibot_core$quit = function(msg) {
 	if(exports.my.users === undefined) { exports.my.users = {} }
-	if(exports.my.channels === undefined) { exports.my.channels = {} }
 
 	var lowerNick = msg.prefix.nick.toLowerCase()
 	if(exports.my.users[lowerNick] !== undefined) {
@@ -67,6 +64,8 @@ exports.ibot_core$quit = function(msg) {
 }
 
 exports.getUser = function(nick) {
+	if(exports.my.users === undefined) { exports.my.users = {} }
+
 	var lowerNick = nick.toLowerCase()
 	return exports.my.users[lowerNick] !== undefined
 	     ? exports.my.users[lowerNick]
