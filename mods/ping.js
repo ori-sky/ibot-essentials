@@ -17,5 +17,5 @@
 exports.name = 'ibot_ping'
 exports.ibot_core$ping = function(message)
 {
-	exports.instance.server.send('PONG :' + message.params[0])
+	exports.mods.call('ibot_core', 'send', 'PONG :' + message.params[0])
 }

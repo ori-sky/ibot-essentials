@@ -28,7 +28,7 @@ exports.ibot_core$001 = function(message)
 	{
 		for(var i=0; i<config.channels.length; ++i)
 		{
-			exports.instance.server.send('JOIN ' + config.channels[i])
+			exports.mods.call('ibot_core', 'send', 'JOIN ' + config.channels[i])
 		}
 	}
 }

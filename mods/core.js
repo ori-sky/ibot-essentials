@@ -65,10 +65,12 @@ exports.ibot$recv = function(message)
 	}
 }
 
+exports.send = function(message, server) {
+	server = server || exports.instance.server
+	server.send(message)
+}
+
 exports.privmsg = function(target, message, server)
 {
-	if(server !== undefined)
-		server.send('PRIVMSG ' + target + ' :' + message)
-	else
-		exports.instance.server.send('PRIVMSG ' + target + ' :' + message)
+	exports.send('PRIVMSG ' + target + ' :' + message, server)
 }

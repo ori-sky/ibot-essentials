@@ -21,7 +21,7 @@ exports.ibot_cmd$cmd_raw = function(privmsg, command)
 	// TODO: fire a generic authentication event and check return values
 	if(exports.mods.call('ibot_master', 'test', privmsg.prefix.mask))
 	{
-		exports.instance.server.send(command.rawparamstring)
+		exports.mods.call('ibot_core', 'send', command.rawparamstring)
 	}
 }
 

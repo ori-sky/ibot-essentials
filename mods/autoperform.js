@@ -28,7 +28,7 @@ exports.ibot_core$001 = function(message)
 	{
 		for(var i=0; i<config.length; ++i)
 		{
-			exports.instance.server.send(config[i])
+			exports.mods.call('ibot_core', 'send', config[i])
 		}
 	}
 }
