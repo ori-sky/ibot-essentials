@@ -28,7 +28,7 @@ exports.Privmsg = function(message, server)
 	this.reply = function(message)
 	{
 		// TODO: make this detect non-channel targets or something
-		exports.privmsg(this.target, message, this.server)
+		exports.mods.call(exports.name, 'privmsg', this.target, message, this.server)
 	}
 }
 
@@ -66,11 +66,13 @@ exports.ibot$recv = function(message)
 }
 
 exports.send = function(message, server) {
+	var wrapped = {message: message}
+	var results = exports.mods.fire('will_send', wrapped)
 	server = server || exports.instance.server
-	server.send(message)
+	server.send(wrapped.message)
 }
 
 exports.privmsg = function(target, message, server)
 {
-	exports.send('PRIVMSG ' + target + ' :' + message, server)
+	exports.mods.call(exports.name, 'send', 'PRIVMSG ' + target + ' :' + message, server)
 }
