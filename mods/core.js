@@ -68,8 +68,10 @@ exports.ibot$recv = function(message)
 exports.send = function(message, server) {
 	var wrapped = {message: message}
 	var results = exports.mods.fire('will_send', wrapped)
-	server = server || exports.instance.server
-	server.send(wrapped.message)
+	if(results._a.indexOf(false) === -1) {
+		server = server || exports.instance.server
+		server.send(wrapped.message)
+	}
 }
 
 exports.privmsg = function(target, message, server)
