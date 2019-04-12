@@ -45,7 +45,15 @@ exports.ibot$recv = function(message)
 		case '375': // RPL_MOTDSTART
 		case '376': // RPL_ENDOFMOTD
 		case '396': // RPL_HOSTHIDDEN
+		case '900': // RPL_LOGGEDIN
+		case '904': // ERR_SASLFAIL
 			exports.mods.fire(message.opcode, message)
+			break
+		case 'CAP':
+			exports.mods.fire('cap', message)
+			break
+		case 'AUTHENTICATE':
+			exports.mods.fire('authenticate', message)
 			break
 		case 'PING':
 			exports.mods.fire('ping', message)
