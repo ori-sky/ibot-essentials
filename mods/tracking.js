@@ -35,9 +35,12 @@ exports.ibot_core$join = function(msg) {
 
 	var lowerNick = msg.prefix.nick.toLowerCase()
 	var lowerChannel = msg.params[0].toLowerCase()
-	if(exports.my.users[lowerNick] === undefined) {
-		exports.my.users[lowerNick] = new exports.User(msg.prefix.nick, msg.prefix.user, msg.prefix.host)
+	var channels = {}
+	if(exports.my.users[lowerNick] !== undefined) {
+		channels = exports.my.users[lowerNick].channels
 	}
+	exports.my.users[lowerNick] = new exports.User(msg.prefix.nick, msg.prefix.user, msg.prefix.host)
+	exports.my.users[lowerNick].channels = channels
 	exports.my.users[lowerNick].channels[lowerChannel] = new exports.Channel(msg.params[0])
 }
 
